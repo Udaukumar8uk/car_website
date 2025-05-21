@@ -9,11 +9,20 @@
 </template>
 
 <script setup>
-const props = defineProps({
-  type: { type: String, default: 'text' },
-  placeholder: { type: String, default: '' },
-  modelValue: { type: String, required: true }
-})
+defineProps({
+  type: {
+    type: String,
+    default: 'text'
+  },
+  placeholder: {
+    type: String,
+    default: ''
+  },
+  modelValue: {
+    type: String,
+    required: true
+  }
+});
 </script>
 
 <style scoped>

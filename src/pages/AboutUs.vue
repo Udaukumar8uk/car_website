@@ -8,10 +8,10 @@
       With a focus on reliability, customer satisfaction, and transparency, we strive to simplify the vehicle buying and booking experience for everyone — from casual users to serious buyers.
     </p>
     <ul>
-      <li>Easy car selection</li>
-      <li> Flexible booking options</li>
-      <li> Cash on Delivery & Online Payment</li>
-      <li> Real-time updates</li>
+      <li>✅ Easy car selection</li>
+      <li>✅ Flexible booking options</li>
+      <li>✅ Cash on Delivery & Online Payment</li>
+      <li>✅ Real-time updates</li>
     </ul>
   </div>
 </template>

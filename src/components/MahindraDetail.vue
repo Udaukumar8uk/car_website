@@ -31,10 +31,8 @@ onMounted(() => {
 });
 
 function bookCar() {
-  router.push({ path: `/book/${carId}`, query: { step: 'address' } });
+  router.push(`/booking/${carId}`);
 }
-
-
 </script>
 
 <style scoped>

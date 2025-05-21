@@ -24,7 +24,7 @@ const cars = [
   {
     name: 'Mahindra',
     image: '/mahindra.jpg',
-    route: '/mahindra' // 
+    route: '/mahindra' // 👈 only Mahindra has a route
   },
   {
     name: 'Tata',
