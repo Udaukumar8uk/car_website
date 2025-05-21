@@ -1,3 +1,4 @@
+// src/router/index.js
 import { createRouter, createWebHistory } from 'vue-router';
 import Signup from '../pages/Signup.vue';
 import Login from '../pages/Login.vue';
@@ -7,37 +8,48 @@ import AboutUs from '../pages/AboutUs.vue';
 import Contact from '../pages/Contact.vue';
 import Mahindra from '../pages/Mahindra.vue';
 import MahindraDetail from '../components/MahindraDetail.vue';
-import BookingFlow from '../components/BookingFlow.vue';
-// other imports remain
+import Book from '../pages/Book.vue';
 
 const routes = [
   { path: '/', redirect: '/signup' },
-  { path: '/signup', component: Signup },
-  { path: '/login', component: Login },
-  { path: '/welcome', component: Welcome },
-  { path: '/home', component: Home },
-  { path: '/about', component: AboutUs },
-  { path: '/contact', component: Contact },
-  { path: '/mahindra', component: Mahindra }, 
+  { path: '/signup', name: 'Signup', component: Signup },
+  { path: '/login', name: 'Login', component: Login },
+  { path: '/welcome', name: 'Welcome', component: Welcome },
+  { path: '/home', name: 'Home', component: Home },
+  { path: '/about', name: 'AboutUs', component: AboutUs },
+  { path: '/contact', name: 'Contact', component: Contact },
+  { path: '/mahindra', name: 'Mahindra', component: Mahindra }, 
   {
     path: '/mahindra/:id',
     name: 'MahindraDetail',
     component: MahindraDetail
   },
   {
-    
-  path: '/booking/:carName',
-  name: 'BookingFlow',
-  component: BookingFlow
-
-
-  },
-
+    path: '/book/:carName',
+    name: 'Book',
+    component: Book
+  }
 ];
 
 const router = createRouter({
   history: createWebHistory(),
   routes,
+});
+router.beforeEach((to, from, next) => {
+  const isLoggedIn = localStorage.getItem('loggedIn') === 'true';
+
+  const publicPages = ['/login', '/signup'];
+  const authRequired = !publicPages.includes(to.path);
+
+  if (authRequired && !isLoggedIn) {
+    return next('/login');
+  }
+
+  if ((to.path === '/login' || to.path === '/signup') && isLoggedIn) {
+    return next('/welcome');
+  }
+
+  next();
 });
 
 export default router;

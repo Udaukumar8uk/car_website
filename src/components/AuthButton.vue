@@ -1,21 +1,27 @@
 <template>
-  <button class="auth-btn" @click="$emit('click')">
-    <slot />
+  <button class="auth-btn" :type="type">
+    {{ label }}
   </button>
 </template>
 
+<script setup>
+const props = defineProps({
+  label: { type: String, required: true },
+  type: { type: String, default: 'button' }
+})
+</script>
+
 <style scoped>
 .auth-btn {
-  padding: 12px;
-  background-color: #5b73e8;
+  background-color: #3498db;
   color: white;
+  padding: 0.6rem 1.2rem;
   border: none;
-  border-radius: 8px;
-  font-weight: bold;
+  border-radius: 5px;
   cursor: pointer;
-  width: 100%;
+  font-weight: bold;
 }
 .auth-btn:hover {
-  background-color: #3b54d1;
+  background-color: #2980b9;
 }
 </style>
